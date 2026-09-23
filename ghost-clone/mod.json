@@ -1,0 +1,56 @@
+{
+    "geode": "v4.0.0",
+    "gd": {
+        "win": "2.206",
+        "android": "2.206",
+        "mac": "2.206",
+        "ios": "2.206"
+    },
+    "version": "v1.0.0",
+    "id": "oystrix.ghost-clone",
+    "name": "Ghost Clone",
+    "developer": "oystrix",
+    "description": "Записывает ваше прохождение уровня и показывает его в виде призрачного клона при следующей попытке",
+    "repository": "https://github.com/oystrix/ghost-clone",
+    "tags": ["gameplay", "enhancement", "practice", "replay"],
+    "links": {
+        "source": "https://github.com/oystrix/ghost-clone"
+    },
+    "settings": {
+        "ghost-opacity": {
+            "name": "Прозрачность призрака",
+            "description": "Насколько прозрачен клон-призрак (0 — невидим, 1 — полностью непрозрачен)",
+            "type": "float",
+            "default": 0.45,
+            "min": 0.0,
+            "max": 1.0,
+            "control": {
+                "slider": true,
+                "slider-step": 0.05
+            }
+        },
+        "auto-record": {
+            "name": "Автозапись попыток",
+            "description": "Автоматически записывать каждую (не-практисную) попытку прохождения",
+            "type": "bool",
+            "default": true
+        },
+        "ghost-color": {
+            "name": "Цвет призрака",
+            "description": "Цвет, которым подсвечивается силуэт призрака",
+            "type": "rgb",
+            "default": [255, 255, 255]
+        },
+        "show-pause-button": {
+            "name": "Кнопка в меню паузы",
+            "description": "Показывать кнопку управления призраком в меню паузы",
+            "type": "bool",
+            "default": true
+        }
+    },
+    "resources": {
+        "sprites": [
+            "resources/*.png"
+        ]
+    }
+}
