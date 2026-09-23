@@ -40,6 +40,7 @@ jobs:
       - name: Build mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          sdk: nightly
           target: ${{ matrix.config.target }}
           combine: true
           configure-args: -DGEODE_DISABLE_FMT_CONSTEVAL=1
