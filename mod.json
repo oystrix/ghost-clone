@@ -1,12 +1,12 @@
 {
-    "geode": "v4.0.0",
+    "geode": "4.0.0",
     "gd": {
         "win": "2.206",
         "android": "2.206",
         "mac": "2.206",
         "ios": "2.206"
     },
-    "version": "v1.0.0",
+    "version": "1.0.0",
     "id": "oystrix.ghost-clone",
     "name": "Ghost Clone",
     "developer": "oystrix",
