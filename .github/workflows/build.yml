@@ -40,10 +40,9 @@ jobs:
       - name: Build mod
         uses: geode-sdk/build-geode-mod@main
         with:
-          sdk: nightly
+          sdk: v4.10.0
           target: ${{ matrix.config.target }}
           combine: true
-          configure-args: -DGEODE_DISABLE_FMT_CONSTEVAL=1
 
   release:
     name: Combine artifacts
