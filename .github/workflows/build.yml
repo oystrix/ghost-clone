@@ -42,6 +42,7 @@ jobs:
         with:
           target: ${{ matrix.config.target }}
           combine: true
+          configure-args: -DGEODE_DISABLE_FMT_CONSTEVAL=1
 
   release:
     name: Combine artifacts
@@ -57,4 +58,3 @@ jobs:
         with:
           name: ghost-clone
           path: "**/*.geode"
-
