@@ -1,1 +1,60 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - name: Windows
+            os: windows-latest
+            target: Win64
+          - name: Android64
+            os: ubuntu-latest
+            target: Android64
+          - name: Android32
+            os: ubuntu-latest
+            target: Android32
+          - name: macOS
+            os: macos-latest
+            target: MacOS
+          - name: iOS
+            os: macos-latest
+            target: iOS
+
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.name }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: ${{ matrix.config.target }}
+          combine: true
+
+  release:
+    name: Combine artifacts
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Upload combined .geode
+        uses: actions/upload-artifact@v4
+        with:
+          name: ghost-clone
+          path: "**/*.geode"
 
